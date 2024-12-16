@@ -1,0 +1,21 @@
+{
+    "name": "thegoat/proyecto",
+    "autoload": {
+        "psr-4": {
+            "Thegoat\\Proyecto\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "erick",
+            "email": "zouozshalom@gmail.com"
+        }
+    ],
+    "require": {
+        "spipu/html2pdf": "^5.2",
+        "opencage/geocode": "^3.3",
+        "culqi/culqi-php": "^2.0",
+        "rmccue/requests": "^2.0",
+        "phpmailer/phpmailer": "^6.9"
+    }
+}

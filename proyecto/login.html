@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login con Registro</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4; /* Gris Claro */
+    }
+    .container {
+      width: 800px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .form-container {
+      width: 200%;
+      height: 100%;
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+    .form {
+      width: 50%;
+      padding: 50px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .form h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .form input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form button {
+      width: 80%;
+      padding: 10px;
+      background-color: #3faabd; /* Azul Claro */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .form button:hover {
+      background-color: #49c4da; /* Azul Claro Hover */
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      background-color: #3faabd; /* Azul Claro */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.6s ease-in-out;
+    }
+    .overlay h2 {
+      margin-bottom: 20px;
+    }
+    .overlay button {
+      padding: 10px 20px;
+      background-color: white;
+      color: #3faabd;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .overlay button:hover {
+      background-color: #f7af51; /* Naranja */
+      color: white;
+    }
+
+    /* Transiciones */
+    .container.right-panel-active .form-container {
+      transform: translateX(-50%);
+    }
+    .container.right-panel-active .overlay {
+      transform: translateX(-100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Formularios -->
+    <div class="form-container">
+      <!-- Formulario de Login -->
+      <div class="form">
+        <h2>Iniciar Sesión</h2>
+        <input type="email" placeholder="Correo Electrónico">
+        <input type="password" placeholder="Contraseña">
+        <button>Iniciar Sesión</button>
+      </div>
+      <!-- Formulario de Registro -->
+      <div class="form">
+        <h2>Crear Cuenta</h2>
+        <input type="text" placeholder="Nombre Completo">
+        <input type="email" placeholder="Correo Electrónico">
+        <input type="password" placeholder="Contraseña">
+        <button>Registrarse</button>
+      </div>
+    </div>
+    <!-- Panel de Alternar -->
+    <div class="overlay" id="overlay">
+      <h2>¿Nuevo aquí?</h2>
+      <p>Regístrate para comenzar tu experiencia</p>
+      <button id="registerBtn">Crear Cuenta</button>
+      <h2>¿Ya tienes una cuenta?</h2>
+      <p>Inicia sesión para continuar</p>
+      <button id="loginBtn">Iniciar Sesión</button>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    const registerBtn = document.getElementById('registerBtn');
+    const loginBtn = document.getElementById('loginBtn');
+
+    registerBtn.addEventListener('click', () => {
+      container.classList.add('right-panel-active');
+    });
+
+    loginBtn.addEventListener('click', () => {
+      container.classList.remove('right-panel-active');
+    });
+  </script>
+</body>
+</html>

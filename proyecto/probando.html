@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuadrado Interactivo con Logos</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4; /* Gris claro */
+      font-family: 'Arial', sans-serif;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 250px);
+      grid-template-rows: repeat(2, 250px);
+      gap: 20px;
+    }
+
+    .grid div {
+      position: relative;
+      background-color: #33333A; /* Negro Primario */
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .grid div:hover {
+      transform: scale(1.05); /* Aumenta el tamaño al pasar el cursor */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
+    }
+
+    .grid div img {
+      width: 70%;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .grid div:hover img {
+      opacity: 1;
+      transform: scale(1.1); /* Zoom al pasar el cursor */
+    }
+
+    .grid div::before {
+      content: attr(data-hover);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .grid div:hover::before {
+      opacity: 1; /* Aparece el texto adicional */
+    }
+
+    /* Colores personalizados para cada cuadro */
+    .grid div:nth-child(1) {
+      background-color: #2ecc71; /* Verde */
+    }
+    .grid div:nth-child(2) {
+      background-color: #f7af51; /* Naranja */
+    }
+    .grid div:nth-child(3) {
+      background-color: #3faabd; /* Azul Claro */
+    }
+    .grid div:nth-child(4) {
+      background-color: #49c4da; /* Azul Claro Hover */
+    }
+
+    /* Mensaje emergente */
+    .grid div p {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .grid div:hover p {
+      opacity: 1;
+    }
+
+    /* Animaciones adicionales */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .grid div:hover {
+      animation: pulse 0.6s infinite;
+    }
+
+    .grid div img {
+      transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .grid div:hover img {
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    }
+
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div data-hover="¡Descubre lo mejor de las marcas!">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="iPhone Logo">
+      iPhone, Samsung y más
+      <p>Alta calidad y diseño premium, elige lo mejor.</p>
+    </div>
+    <div data-hover="¡Novedades de 2024 disponibles ahora!">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo">
+      Novedades 2024
+      <p>Innovación constante y dispositivos de última tecnología.</p>
+    </div>
+    <div data-hover="Calidad garantizada en todos nuestros modelos">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Huawei_Logo.svg" alt="Huawei Logo">
+      Huawei, Xiaomi y más
+      <p>Rendimiento excelente a precios competitivos.</p>
+    </div>
+    <div data-hover="Exclusividad en tecnología avanzada">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg" alt="Xiaomi Logo">
+      Modelos Exclusivos
+      <p>Calidad y tecnología a precios accesibles.</p>
+    </div>
+  </div>
+</body>
+</html>
